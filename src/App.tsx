@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const PageContainer = styled.div`
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   color: white;
   display: flex;

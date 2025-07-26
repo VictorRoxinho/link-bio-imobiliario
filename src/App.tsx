@@ -179,6 +179,17 @@ const ContentContainer = styled.div`
       width: 1rem;
     }
   }
+  /* Celulares extra pequenos */
+  @media (max-width: 350px) {
+    min-height: 50vh;
+    gap: 0.2rem;
+
+    .action-option {
+      width: 70%;
+      font-size: 0.7rem;
+      padding: 0.5rem 0.1rem;
+    }
+  }
 `;
 
 function App() {

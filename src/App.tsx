@@ -16,6 +16,13 @@ const PageContainer = styled.div`
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -32,6 +39,7 @@ const ContentContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-top: 1rem;
   }
 
   .header-line {
@@ -109,6 +117,35 @@ const ContentContainer = styled.div`
       font-family: "Merriweather", serif;
     }
   }
+
+  @media (max-width: 400px) {
+    padding: 8px;
+    gap: 8px;
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      font-size: 0.9rem;
+    }
+
+    .action-option {
+      width: 70%;
+      min-width: unset;
+      max-width: unset;
+      font-size: 1rem;
+      padding: 12px 8px;
+    }
+
+    .brand-name {
+      gap: 4px;
+      margin: 0 0 1rem 0.5rem;
+
+      img {
+        width: 16px;
+      }
+    }
+  }
 `;
 
 function App() {
@@ -125,10 +162,18 @@ function App() {
             <img src="/figuras/fig1.svg" alt="" />
             <h1>França</h1>
           </div>
-          <div className="action-option">Converse comigo</div>
-          <div className="action-option">Lançamentos de imóveis</div>
-          <div className="action-option">Meu Site</div>
-          <div className="action-option">Dúvidas Frequentes</div>
+          <div className="action-option">
+            <h2>Converse comigo</h2>
+          </div>
+          <div className="action-option">
+            <h2>Lançamentos de imóveis</h2>
+          </div>
+          <div className="action-option">
+            <h2>Meu Site</h2>
+          </div>
+          <div className="action-option">
+            <h2>Dúvidas Frequentes</h2>
+          </div>
           <div className="social-instagram">
             <h3>@aneefranca</h3>
           </div>

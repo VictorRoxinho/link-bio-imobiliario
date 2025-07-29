@@ -2,228 +2,126 @@ import "./App.css";
 import styled from "styled-components";
 
 const PageContainer = styled.div`
-  min-height: 100vh;
-  min-height: 100dvh;
-  width: 100%;
-  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  padding: 0.5rem 0;
+  background-color: #f5f5f5;
+`;
+
+const HeroContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: flex-end;
-  background-image: url("/images/background-full.png");
+  align-items: center;
+  flex: 1;
+
+  margin: 0 1rem 1rem 1rem;
+  border-radius: 1.3rem 1.3rem 0.3rem 0.3rem;
+
+  background-image: url("/images/Background-Building-Shadow.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0;
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  h1 {
-    font-size: 1.5rem;
+
+  color: #fff;
+  font-family: "Belleza", sans-serif;
+
+  .profile-image {
+    width: min(120px, 34vw);
+    max-width: 100%;
+    margin-bottom: 1.3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
   }
 
-  h2 {
-    font-size: 1rem;
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.7rem;
+  }
+
+  .title-divider {
+    width: 105%;
+    height: 2px;
+    background-color: #fff;
+    margin-top: 0.5rem;
+    margin-bottom: 0.7rem;
   }
 `;
 
-const ContentContainer = styled.div`
-  width: 100%;
-  max-width: 32rem;
-  margin: 0 auto;
-  padding: 1.5rem;
+const OptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
-  min-height: 60vh;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  margin-bottom: -2rem;
+  flex: 1;
+  gap: 0.7rem;
 
-  /* 1. Header Decoration */
-  .header-decoration {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    margin-top: 1rem;
-  }
-
-  .header-line {
-    width: 30vw;
-    max-width: 10rem;
-    height: 0.25rem;
-    background-color: #6f3696;
-    border-radius: 2rem;
-  }
-
-  .header-accent {
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: #6f3696;
-    border-radius: 0.3rem;
-    rotate: 70deg;
-    margin-top: -1rem;
-  }
-
-  /* 2. Brand Name */
-  .brand-name {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 0 0 2rem 0.5rem;
-
-    h1 {
-      font-weight: 700;
-      margin: 0;
-      font-family: "Merriweather", serif;
-      font-size: clamp(1.2rem, 4vw, 2rem);
-    }
-
-    img {
-      width: 1.25rem;
-      rotate: 70deg;
-      height: auto;
-    }
-  }
-
-  /* 3. Action Options */
-  .action-option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, #6f3696 60%, #8e44ad 100%);
+  .option {
+    width: 100%;
+    background-color: #004369;
     color: #fff;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 600;
-    padding: 1rem 1.5rem;
-    border-radius: 0.75rem;
-    width: 80%;
-    max-width: 20rem;
-    margin: 0.5rem 0;
+    border-radius: 0.7rem;
+    padding: 0.7rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+
     cursor: pointer;
-    box-shadow: 0 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.1);
-    border: none;
-    outline: none;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 
     &:hover {
-      background: linear-gradient(90deg, #5a2b7a 60%, #6f3696 100%);
-      transform: translateY(-0.15rem) scale(1.03);
-      box-shadow: 0 0.375rem 1.5rem 0 rgba(111, 54, 150, 0.18);
-    }
-
-    h2 {
-      font-size: inherit;
-      margin: 0;
-    }
-  }
-
-  /* 4. Social Instagram */
-  .social-instagram {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    cursor: pointer;
-
-    h3 {
-      margin: 0;
-      font-family: "Merriweather", serif;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-    }
-  }
-
-  /* Tablets */
-  @media (max-width: 900px) {
-    padding: 1rem;
-    gap: 1rem;
-    .header-line {
-      width: 40vw;
-      max-width: 8rem;
-    }
-    .brand-name {
-      gap: 0.5rem;
-      margin: 0 0 1.5rem 0.25rem;
-    }
-  }
-
-  /* Celulares grandes */
-  @media (max-width: 600px) {
-    padding: 0.75rem;
-    gap: 0.75rem;
-    min-height: 63vh;
-    .header-line {
-      width: 50vw;
-      max-width: 6rem;
-    }
-    .brand-name {
-      gap: 0.3rem;
-      margin: 0 0 1rem 0.1rem;
-    }
-  }
-
-  /* Celulares pequenos */
-  @media (max-width: 400px) {
-    padding: 0.5rem;
-    gap: 0.5rem;
-    min-height: 63vh;
-    .header-line {
-      width: 60vw;
-      max-width: 4rem;
-    }
-    .action-option {
-      padding: 0.75rem 0.5rem;
-      border-radius: 0.5rem;
-    }
-    .brand-name h1 {
-      font-size: 1rem;
-    }
-    .brand-name img {
-      width: 1rem;
-    }
-  }
-  /* Celulares extra pequenos */
-  @media (max-width: 350px) {
-    min-height: 50vh;
-    gap: 0.2rem;
-
-    .action-option {
-      width: 70%;
-      font-size: 0.7rem;
-      padding: 0.5rem 0.1rem;
+      background-color: #00304d;
     }
   }
 `;
 
 function App() {
   return (
-    <>
-      <PageContainer>
-        <ContentContainer>
-          <div className="header-decoration">
-            <div className="header-line"></div>
-            <div className="header-accent"></div>
-          </div>
-          <div className="brand-name">
-            <h1>Ane</h1>
-            <img src="/figuras/fig1.svg" alt="" />
-            <h1>França</h1>
-          </div>
-          <div className="action-option">
-            <h2>Converse comigo</h2>
-          </div>
-          <div className="action-option">
-            <h2>Lançamentos de imóveis</h2>
-          </div>
-          <div className="action-option">
-            <h2>Meu Site</h2>
-          </div>
-          <div className="action-option">
-            <h2>Dúvidas Frequentes</h2>
-          </div>
-          <div className="social-instagram">
-            <h3>@aneefranca</h3>
-          </div>
-        </ContentContainer>
-      </PageContainer>
-    </>
+    <PageContainer>
+      <HeroContainer>
+        <img
+          src="/images/Profile-Picture-Background.png"
+          alt="Foto de Ane França"
+          className="profile-image"
+        />
+        <div className="hero-title">
+          <h1
+            style={{
+              fontSize: "2rem",
+              fontFamily: "Belleza, serif",
+              fontWeight: 100,
+            }}
+          >
+            ANE FRANÇA
+          </h1>
+          <div className="title-divider"></div>
+          <p
+            style={{
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: 400,
+              letterSpacing: "0.2em",
+              fontSize: "0.9rem",
+            }}
+          >
+            CORRETORA DE IMÓVEIS
+          </p>
+        </div>
+      </HeroContainer>
+      <OptionsContainer>
+        <div className="option">Meu Site</div>
+        <div className="option">Portfólio</div>
+        <div className="option">WhatsApp</div>
+        <div className="option">Dúvidas Frequentes</div>
+      </OptionsContainer>
+    </PageContainer>
   );
 }
 

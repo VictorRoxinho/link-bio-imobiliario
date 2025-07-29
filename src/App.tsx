@@ -76,6 +76,10 @@ const OptionsContainer = styled.div`
     letter-spacing: 0.1rem;
 
     cursor: pointer;
+
+    &:hover {
+      background-color: #00304d;
+    }
   }
 `;
 

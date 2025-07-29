@@ -1,5 +1,6 @@
 import "./App.css";
 import styled from "styled-components";
+import { useState } from "react";
 
 const PageContainer = styled.div`
   display: flex;
@@ -71,6 +72,7 @@ const OptionsContainer = styled.div`
     padding: 0.7rem 0;
     text-align: center;
     text-transform: uppercase;
+
     font-family: "Poppins", sans-serif;
     font-size: 0.9rem;
     letter-spacing: 0.1rem;
@@ -80,10 +82,20 @@ const OptionsContainer = styled.div`
     &:hover {
       background-color: #00304d;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
 function App() {
+  const [isOptionOpen, setIsOptionOpen] = useState(false);
+
   return (
     <PageContainer>
       <HeroContainer>
@@ -116,10 +128,39 @@ function App() {
         </div>
       </HeroContainer>
       <OptionsContainer>
-        <div className="option">Meu Site</div>
-        <div className="option">Portfólio</div>
-        <div className="option">WhatsApp</div>
-        <div className="option">Dúvidas Frequentes</div>
+        <div className="option">
+          <a
+            href="http://meusite.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Meu Site
+          </a>
+        </div>
+        <div className="option">
+          <a
+            href="https://wa.me/c/5571981932275"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Portfólio
+          </a>
+        </div>
+        <div className="option">
+          <a
+            href="https://wa.me/5571981932275?text=Ol%C3%A1%2C%20Ane%21%20Tenho%20interesse%20em%20comprar%20um%20im%C3%B3vel%20e%20gostaria%20da%20sua%20ajuda."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
+        <div
+          className={`option ${isOptionOpen ? "open" : ""}`}
+          onClick={() => setIsOptionOpen(!isOptionOpen)}
+        >
+          Dúvidas Frequentes
+        </div>
       </OptionsContainer>
     </PageContainer>
   );

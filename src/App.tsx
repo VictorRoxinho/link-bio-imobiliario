@@ -1,6 +1,7 @@
 import "./App.css";
 import styled from "styled-components";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const PageContainer = styled.div`
   display: flex;
@@ -91,6 +92,33 @@ const OptionsContainer = styled.div`
       height: 100%;
     }
   }
+
+  .faq {
+    width: 100%;
+    background-color: #fff;
+    color: #333;
+    border-radius: 0.7rem;
+    border: 1px solid #004369;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-answer {
+      margin-left: 1rem;
+    }
+  }
 `;
 
 function App() {
@@ -139,7 +167,7 @@ function App() {
         </div>
         <div className="option">
           <a
-            href="https://wa.me/c/5571981932275"
+            href="https://wa.me/c/557181932275"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -161,6 +189,38 @@ function App() {
         >
           Dúvidas Frequentes
         </div>
+
+        {/* Animação do FAQ */}
+        <AnimatePresence>
+          {isOptionOpen && (
+            <motion.div
+              className="faq"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <p className="faq-question">
+                1. Como faço para comprar um imóvel?
+              </p>
+              <p className="faq-answer">
+                Para comprar um imóvel, você deve primeiro definir seu orçamento
+                e pesquisar as opções disponíveis no mercado. Em seguida, entre
+                em contato com um corretor de imóveis para ajudá-lo no processo
+                de compra.
+              </p>
+              <p className="faq-question">
+                2. Quais são os documentos necessários para comprar um imóvel?
+              </p>
+              <p className="faq-answer">
+                Os documentos necessários podem variar, mas geralmente incluem
+                RG, CPF, comprovante de renda, comprovante de residência e
+                certidão de nascimento ou casamento. É importante consultar um
+                especialista para obter a lista completa.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </OptionsContainer>
     </PageContainer>
   );

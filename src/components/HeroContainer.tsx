@@ -61,6 +61,30 @@ const HeroContainer = styled.div`
       font-size: 0.8rem !important;
     }
   }
+
+  @media (min-width: 1024px) {
+    margin: 0 4rem 2rem 4rem;
+    border-radius: 2rem 2rem 1rem 1rem;
+    min-height: 500px;
+    .profile-image {
+      width: 180px;
+      min-width: 180px;
+      margin-bottom: 2rem;
+    }
+    .hero-title {
+      margin-bottom: 2.5rem;
+    }
+    .title-divider {
+      width: 120%;
+      height: 3px;
+    }
+    h1 {
+      font-size: 3rem !important;
+    }
+    p {
+      font-size: 1.3rem !important;
+    }
+  }
 `;
 
 export default HeroContainer;

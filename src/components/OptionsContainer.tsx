@@ -8,18 +8,18 @@ const OptionsContainer = styled.div`
   margin-top: 1rem;
   margin-bottom: -2rem;
   flex: 1;
-  gap: 0.7rem;
+  gap: 1rem;
 
   .option {
-    width: 100%;
+    width: 85%;
     background-color: #004369;
     color: #fff;
     border-radius: 0.7rem;
-    padding: 0.7rem 0;
+    padding: 1rem 0;
     text-align: center;
     text-transform: uppercase;
     font-family: "Poppins", sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     letter-spacing: 0.1rem;
     cursor: pointer;
     &:hover {
@@ -35,7 +35,7 @@ const OptionsContainer = styled.div`
   }
 
   .faq {
-    width: 100%;
+    width: 85%;
     background-color: #fff;
     color: #333;
     border-radius: 0.7rem;
@@ -61,10 +61,12 @@ const OptionsContainer = styled.div`
     padding: 0 0.5rem;
     gap: 0.5rem;
     .option {
+      width: 100%;
       font-size: 0.85rem;
       padding: 0.6rem 0;
     }
     .faq {
+      width: 100%;
       font-size: 0.85rem;
       padding: 0.7rem;
     }
